@@ -74,8 +74,8 @@ body {
 }
 
     .arrow-icon > div {
-        margin-left: -3px;
-        margin-top: -5px;
+        margin-left: -5px;
+        margin-top: -15px;
         transform-origin: center center;
-        font: 15px/1.5 "Helvetica Neue", Arial, Helvetica, sans-serif;
+        font: 30px/1.5 "Helvetica Neue", Arial, Helvetica, sans-serif;
     }
