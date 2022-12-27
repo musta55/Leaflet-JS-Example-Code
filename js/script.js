@@ -33,7 +33,7 @@ const markerIconProd = L.icon({
 });
 
 const markerIconSup = L.icon({
-    iconUrl: ` https://api.geoapify.com/v1/icon/?type=material&color=red&icon=landmark&iconType=awesome&scaleFactor=2&apiKey=${myAPIKey}`,
+    iconUrl: ` https://api.geoapify.com/v1/icon/?type=material&color=%232b4607&icon=landmark&iconType=awesome&scaleFactor=2&apiKey=${myAPIKey}`,
     iconSize: [31, 46], // size of the icon
     iconAnchor: [15.5, 42], // point of the icon which will correspond to marker's location
     popupAnchor: [0, -45] // point from which the popup should open relative to the iconAnchor
@@ -43,14 +43,21 @@ const markerIconSup = L.icon({
 
 let iconOption = {
     iconUrl: './assets/location-marker.svg',
-    iconSize: [30, 30]
+    iconSize: [40, 40]
 };
+
+let chemicalOption = {
+    iconUrl: './assets/chemical.svg',
+    iconSize: [60, 60]
+};
+
 let ourCustomIcon = L.icon(iconOption);
+let chemicalIcon = L.icon(chemicalOption);
 
 
 function getRandomInt(max) {
     return Math.floor(Math.random() * max);
-  }
+}
 
 
 fetch("./assets/location-data.json")
@@ -63,40 +70,85 @@ fetch("./assets/location-data.json")
             option.text = data[i].title;
             document.querySelector(".select-dropdown").appendChild(option);
 
-            let marker = L.marker([data[i].latitude, data[i].longitude], { icon: ourCustomIcon }).bindPopup(`<h3> ${data[i].title} </h3> <p> ${data[i].description} </p>`).on('click', () => {
+            var tennaryPosition = [data[i].latitude + getRandomInt(30), data[i].longitude + getRandomInt(30)];
+            var chemicalFactoryPosition = [data[i].latitude + getRandomInt(20), data[i].longitude + getRandomInt(20)];
+            var productionFactoryPosition = [data[i].latitude + getRandomInt(20), data[i].longitude + getRandomInt(30)];
+           
+           if(i==0) var supplierFactoryPosition = [data[i].latitude, data[i].longitude];
+
+
+
+            // let marker = L.marker([data[i].latitude, data[i].longitude], { icon: ourCustomIcon }).bindPopup(`<h3> ${data[i].title} </h3> <p> ${data[i].description} </p>`).on('click', () => {
+            //     //  map.flyTo([data[i].latitude, data[i].longitude], data[i].zoomLevel);
+            // }).addTo(map);
+
+            let marker = L.marker([tennaryPosition[0], tennaryPosition[1]], { icon: ourCustomIcon }).bindPopup(`<h3> ${data[i].title} </h3> <p> ${data[i].description} </p>`).on('click', () => {
                 //  map.flyTo([data[i].latitude, data[i].longitude], data[i].zoomLevel);
             }).addTo(map);
 
-            let markerSup = L.marker([data[i].latitude + getRandomInt(50), data[i].longitude +  getRandomInt(50)], { icon: markerIconSup }).bindPopup(`<h3> ${data[i].title} </h3> <p> ${data[i].description} </p>`).on('click', () => {
-                //  map.flyTo([data[i].latitude, data[i].longitude], data[i].zoomLevel);
-            }).addTo(map);
+            if(i%2)
+            {
+                let markerSup = L.marker([chemicalFactoryPosition[0], chemicalFactoryPosition[1]], { icon: markerIconSup }).bindPopup(`<h3> ${data[i].title} </h3> <p> ${data[i].description} </p>`).on('click', () => {
+                    //  map.flyTo([data[i].latitude, data[i].longitude], data[i].zoomLevel);
+                }).addTo(map);
+    
+                let markerProd = L.marker([productionFactoryPosition[0], productionFactoryPosition[1]], { icon: markerIconProd }).bindPopup(`<h3> ${data[i].title} </h3> <p> ${data[i].description} </p>`).on('click', () => {
+                    //  map.flyTo([data[i].latitude, data[i].longitude], data[i].zoomLevel);
+                }).addTo(map);
+    
+    
+                let markerChem = L.marker([supplierFactoryPosition[0], supplierFactoryPosition[1]], { icon: chemicalIcon }).bindPopup(`<h3> ${data[i].title} </h3> <p> ${data[i].description} </p>`).on('click', () => {
+                    //  map.flyTo([data[i].latitude, data[i].longitude], data[i].zoomLevel);
+                }).addTo(map);
+    
+                // var mylatlngs = [
+                //     [data[i].latitude, data[i].longitude],
+                //     [data[i + 1].latitude, data[i + 1].longitude]
+                // ];
+    
+    
+                const arcLineChemSup = L.Polyline.Arc([chemicalFactoryPosition[0], chemicalFactoryPosition[1]],
+                    [supplierFactoryPosition[0], supplierFactoryPosition[1]], {
+                    color: 'green',
+                    vertices: 200
+                }).addTo(map).setText('  ►  ', {
+                    repeat: false, center: true,
+                    offset: 6,
+                    attributes: {
+                        'font-weight': 'bold',
+                        'font-size': '18','fill': 'green'
+                    }
+                });
+    
+                const arcLineTenSup = L.Polyline.Arc([tennaryPosition[0], tennaryPosition[1]],
+                    [supplierFactoryPosition[0], supplierFactoryPosition[1]], {
+                    color: 'green',
+                    vertices: 200
+                }).addTo(map).setText('  ►  ', {
+                    repeat: false, center: true,
+                    offset: 6,
+                    attributes: {
+                        'font-weight': 'bold',
+                        'font-size': '18','fill': 'green'
+                    }
+                });
+    
+    
+                const arcLineSupProd = L.Polyline.Arc([supplierFactoryPosition[0], supplierFactoryPosition[1]],
+                    [productionFactoryPosition[0], productionFactoryPosition[1]], {
+                    color: 'violet',
+                    vertices: 200
+                }).addTo(map).setText('  ►  ', {
+                    repeat: false, center: true,
+                    offset: 6,
+                    attributes: {
+                        'font-weight': 'bold',
+                        'font-size': '18','fill': 'violet'
+                    }
+                });
+            }
 
-            let markerProd = L.marker([data[i].latitude +  getRandomInt(50) , data[i].longitude +  getRandomInt(50)], { icon: markerIconProd }).bindPopup(`<h3> ${data[i].title} </h3> <p> ${data[i].description} </p>`).on('click', () => {
-                //  map.flyTo([data[i].latitude, data[i].longitude], data[i].zoomLevel);
-            }).addTo(map);
-
-            let markerMan = L.marker([data[i].latitude +  getRandomInt(50) , data[i].longitude  +  getRandomInt(50)] , { icon: markerIcon }).bindPopup(`<h3> ${data[i].title} </h3> <p> ${data[i].description} </p>`).on('click', () => {
-                //  map.flyTo([data[i].latitude, data[i].longitude], data[i].zoomLevel);
-            }).addTo(map);
-
-            var mylatlngs = [
-                [data[i].latitude, data[i].longitude],
-                [data[i + 1].latitude, data[i + 1].longitude]
-            ];
-
-         const layer =    L.Polyline.Arc([data[i].latitude, data[i].longitude],
-                [data[i + 1].latitude, data[i + 1].longitude], {
-                color: 'black',
-                vertices: 200
-            }).addTo(map);
-
-        
-
-            layer.setText('  ►  ', {repeat: false,center: true,
-                offset: 8,
-                attributes: {'font-weight': 'bold',
-                             'font-size': '24'}});
-
+            
         }
     })
     .catch(error => alert(error))
@@ -108,7 +160,7 @@ document.querySelector(".map-zoom-out-btn").addEventListener('click', () => {
 document.querySelector(".search-btn").addEventListener('click', () => {
     let select = document.querySelector(".select-dropdown");
     let value = select.options[select.selectedIndex].value;
-    map.flyTo([ourData[value - 1].latitude, ourData[value - 1].longitude], 10);
+    map.flyTo([ourData[value - 1].latitude, ourData[value - 1].longitude], 5);
 });
 
 
