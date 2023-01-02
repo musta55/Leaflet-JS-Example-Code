@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> Supply Chain Management Map</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=0.50">
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin=""/>
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
+    
+    <script src='//unpkg.com/leaflet-arc/bin/leaflet-arc.min.js'></script>
+
+    <script src='//unpkg.com/leaflet-arc/bin/leaflet-arc.min.js'></script>
+    <script src="/js/leaflet.textpath.js"></script>
+
+    <!-- Custom Styles -->
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
+</head>
+<body>
+    <h2 class="heading"> Supply Chain Management </h2>
+    <div id="mymap"> </div>
+    <div class="button-group flex-style">
+        <div class="component1">
+            <button class="map-zoom-out-btn"> Map Zoom Out </button>
+        </div>
+        <div class="component2">
+            <select class="select-dropdown" name="dropdown">
+                <option> Select any Hub </option>
+            </select>
+            <button class="search-btn"> Search </button>
+        </div>
+    </div>
+    <script type="text/javascript" src="/js/script.js"></script>
+</body>
+</html>

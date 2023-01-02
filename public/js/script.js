@@ -7,7 +7,9 @@ const myAPIKey = "fb78e7f91cd847519128e3b58e348171";
 // const myAPIKey = process.env["key"];
 let map = L.map('mymap', {
     center: [39.8282, 58.5795],
-    zoom: 2
+    zoom: 1,
+    boxZoom: true,
+    trackResize:true
 });
 
 const tiles = L.tileLayer('https://{s}.tile.openstreetmap.de/{z}/{x}/{y}.png', {
@@ -42,12 +44,12 @@ const markerIconSup = L.icon({
 
 
 let iconOption = {
-    iconUrl: './assets/location-marker.svg',
+    iconUrl: '/assets/location-marker.svg',
     iconSize: [40, 40]
 };
 
 let chemicalOption = {
-    iconUrl: './assets/chemical.svg',
+    iconUrl: '/assets/chemical.svg',
     iconSize: [60, 60]
 };
 
@@ -61,7 +63,7 @@ function getRandomInt(max) {
 }
 
 
-fetch("./assets/location-data.json")
+fetch("/assets/location-data.json")
     .then(response => response.json())
     .then(data => {
         ourData = data;
