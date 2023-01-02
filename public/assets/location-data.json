@@ -3,33 +3,34 @@
         "latitude": 24.1751,
         "longitude": 90.0421,
         "title": "Leather Supplier",
+        "image" : "https://www.oeko-tex.com/fileadmin/_processed_/8/d/csm_brown-leather_ad42e9171f.jpg",
         "description": "Number of Male Production Workers: 4111 <br> Number of Female Production Workers: 2743 <br> Number of Male Employees: 4669 <br>Number of Female Employees: 2773        <br>Sustainable Material Certification(s): Not Disclosed <br>Environmental & Chemical Management Certification(s): Not Disclosed",
         "zoomLevel": 18
     },
     {
-        "latitude":15.9220,
-        "longitude": 60.8347,
+        "latitude":45.9220,
+        "longitude": 40.8347,
         "title": "Chemical warehouse",
         "description": "Number of Male Production Workers: 2454 <br> Number of Female Production Workers: 3534 <br> Number of Male Employees: 456 <br>Number of Female Employees: 35        <br>Sustainable Material Certification(s): Not Disclosed <br>Environmental & Chemical Management Certification(s): Not Disclosed",
         "zoomLevel": 18
     },
     {
         "latitude": 40.0258,
-        "longitude": 45.1780,
+        "longitude": 75.1780,
         "title": "Slaughter house",
         "description": "Number of Male Production Workers: 2454 <br> Number of Female Production Workers: 3534 <br> Number of Male Employees: 456 <br>Number of Female Employees: 35        <br>Sustainable Material Certification(s): Not Disclosed <br>Environmental & Chemical Management Certification(s): Not Disclosed",
         "zoomLevel": 18
     },
     {
         "latitude": 22.6129,
-        "longitude": 50.2295,
+        "longitude": 60.2295,
         "title": "Production center",
         "description": "Number of Male Production Workers: 2254 <br> Number of Female Production Workers: 3534 <br> Number of Male Employees: 456 <br>Number of Female Employees: 35        <br>Sustainable Material Certification(s): Not Disclosed <br>Environmental & Chemical Management Certification(s): Not Disclosed",
         "zoomLevel": 18
     },
     {
-        "latitude": 38.3616,
-        "longitude": 90.4747,
+        "latitude": 28.3616,
+        "longitude": 60.4747,
         "title": "Textile Mills",
         "description": "Number of Male Production Workers: 546 <br> Number of Female Production Workers: 3534 <br> Number of Male Employees: 456 <br>Number of Female Employees: 35        <br>Sustainable Material Certification(s): Not Disclosed <br>Environmental & Chemical Management Certification(s): Not Disclosed",
         "zoomLevel": 20
@@ -42,8 +43,8 @@
         "zoomLevel": 18
     },
     {
-        "latitude": 46.9239,
-        "longitude": 105.8267,
+        "latitude": 26.9239,
+        "longitude": 75.8267,
         "title": "Distribution center",
         "description": "Number of Male Production Workers: 2454 <br> Number of Female Production Workers: 3534 <br> Number of Male Employees: 456 <br>Number of Female Employees: 35        <br>Sustainable Material Certification(s): Not Disclosed <br>Environmental & Chemical Management Certification(s): Not Disclosed",
         "zoomLevel": 18

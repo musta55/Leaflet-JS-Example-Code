@@ -135,9 +135,9 @@
                         rotateAngle = options.orientation;
                 }
     
-                var rotatecenterX = (textNode.getBBox().x + textNode.getBBox().width / 2);
-                var rotatecenterY = (textNode.getBBox().y + textNode.getBBox().height / 2);
-                textNode.setAttribute('transform','rotate(' + rotateAngle + ' '  + rotatecenterX + ' ' + rotatecenterY + ')');
+                var rotatecenterX = (textNode.getBBox().x + textNode.getBBox().width / 10);
+                var rotatecenterY = (textNode.getBBox().y + textNode.getBBox().height / 10);
+                textNode.setAttribute('transform','rotate(' + rotateAngle+10 + ' '  + rotatecenterX + ' ' + rotatecenterY + ')');
             }
     
             /* Initialize mouse events for the additional nodes */

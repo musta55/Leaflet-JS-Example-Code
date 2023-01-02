@@ -1,0 +1,22 @@
+{
+  "name": "leaflet-js-example-code",
+  "version": "1.0.0",
+  "description": "*Leaflet JS* is an open source JavaScript library for adding simple and interactive web maps. It can add the map data to the map layers and has features like panning, zooming, etc that most of the applications require. This is an example code for integrating Leaflet JS on your webpage.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/musta55/Leaflet-JS-Example-Code.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/musta55/Leaflet-JS-Example-Code/issues"
+  },
+  "homepage": "https://github.com/musta55/Leaflet-JS-Example-Code#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}

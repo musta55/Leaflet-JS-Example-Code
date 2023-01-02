@@ -6,7 +6,7 @@ const myAPIKey = "fb78e7f91cd847519128e3b58e348171";
 
 // const myAPIKey = process.env["key"];
 let map = L.map('mymap', {
-    center: [39.8282, -98.5795],
+    center: [39.8282, 58.5795],
     zoom: 2
 });
 
@@ -15,9 +15,6 @@ const tiles = L.tileLayer('https://{s}.tile.openstreetmap.de/{z}/{x}/{y}.png', {
     minZoom: 3,
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 }).addTo(map);
-
-
-
 
 
 const markerIcon = L.icon({
@@ -59,7 +56,8 @@ let chemicalIcon = L.icon(chemicalOption);
 
 
 function getRandomInt(max) {
-    return Math.floor(Math.random() * max);
+    return max * 1.5;
+    //    return Math.floor(Math.random() * max);
 }
 
 
@@ -73,11 +71,11 @@ fetch("./assets/location-data.json")
             option.text = data[i].title;
             document.querySelector(".select-dropdown").appendChild(option);
 
-            var tennaryPosition = [data[i].latitude + getRandomInt(30), data[i].longitude + getRandomInt(30)];
-            var chemicalFactoryPosition = [data[i].latitude + getRandomInt(20), data[i].longitude + getRandomInt(20)];
-            var productionFactoryPosition = [data[i].latitude + getRandomInt(20), data[i].longitude + getRandomInt(30)];
-           
-           if(i==0) var supplierFactoryPosition = [data[i].latitude, data[i].longitude];
+            var tennaryPosition = [data[i].latitude + getRandomInt(10), data[i].longitude + getRandomInt(10)];
+            var chemicalFactoryPosition = [data[i].latitude + getRandomInt(10), data[i].longitude + getRandomInt(0)];
+            var productionFactoryPosition = [data[i].latitude - getRandomInt(4), data[i].longitude - getRandomInt(3)];
+
+            if (i == 0) var supplierFactoryPosition = [data[i].latitude, data[i].longitude];
 
 
 
@@ -85,31 +83,30 @@ fetch("./assets/location-data.json")
             //     //  map.flyTo([data[i].latitude, data[i].longitude], data[i].zoomLevel);
             // }).addTo(map);
 
-            let marker = L.marker([tennaryPosition[0], tennaryPosition[1]], { icon: ourCustomIcon }).bindPopup(`<h3> ${data[i].title} </h3> <p> ${data[i].description} </p>`).on('click', () => {
+            let marker = L.marker([tennaryPosition[0], tennaryPosition[1]], { icon: ourCustomIcon }).bindPopup(`<h3> ${data[i].title} </h3> <img src=${"https://media.gettyimages.com/id/944687452/photo/dairy-farm-cows-indoor-in-the-shed.jpg?s=612x612&w=gi&k=20&c=80P3HXhettkQ8pU0nNBC_vsPov_76x4gdAJYNZR1w-E="} width="100%" height = "5%"></img> <p> ${data[i].description} </p>`).on('click', () => {
                 //  map.flyTo([data[i].latitude, data[i].longitude], data[i].zoomLevel);
             }).addTo(map);
 
-            if(i%2)
-            {
-                let markerSup = L.marker([chemicalFactoryPosition[0], chemicalFactoryPosition[1]], { icon: markerIconSup }).bindPopup(`<h3> ${data[i].title} </h3> <p> ${data[i].description} </p>`).on('click', () => {
+            if (i % 2) {
+                let markerSup = L.marker([chemicalFactoryPosition[0], chemicalFactoryPosition[1]], { icon: markerIconSup }).bindPopup(`<h3> ${data[i].title} </h3> <img src=${"https://media.gettyimages.com/id/944687452/photo/dairy-farm-cows-indoor-in-the-shed.jpg?s=612x612&w=gi&k=20&c=80P3HXhettkQ8pU0nNBC_vsPov_76x4gdAJYNZR1w-E="} width="100%" height = "5%"></img><p> ${data[i].description} </p>`).on('click', () => {
                     //  map.flyTo([data[i].latitude, data[i].longitude], data[i].zoomLevel);
                 }).addTo(map);
-    
-                let markerProd = L.marker([productionFactoryPosition[0], productionFactoryPosition[1]], { icon: markerIconProd }).bindPopup(`<h3> ${data[i].title} </h3> <p> ${data[i].description} </p>`).on('click', () => {
+
+                let markerProd = L.marker([productionFactoryPosition[0], productionFactoryPosition[1]], { icon: markerIconProd }).bindPopup(`<h3> ${data[i].title} </h3><img src=${"https://media.gettyimages.com/id/944687452/photo/dairy-farm-cows-indoor-in-the-shed.jpg?s=612x612&w=gi&k=20&c=80P3HXhettkQ8pU0nNBC_vsPov_76x4gdAJYNZR1w-E="} width="100%" height = "5%"></img> <p> ${data[i].description} </p>`).on('click', () => {
                     //  map.flyTo([data[i].latitude, data[i].longitude], data[i].zoomLevel);
                 }).addTo(map);
-    
-    
-                let markerChem = L.marker([supplierFactoryPosition[0], supplierFactoryPosition[1]], { icon: chemicalIcon }).bindPopup(`<h3> ${data[i].title} </h3> <p> ${data[i].description} </p>`).on('click', () => {
+
+
+                let markerChem = L.marker([supplierFactoryPosition[0], supplierFactoryPosition[1]], { icon: chemicalIcon }).bindPopup(`<h3> ${data[i].title} </h3> <img src=${"https://media.gettyimages.com/id/944687452/photo/dairy-farm-cows-indoor-in-the-shed.jpg?s=612x612&w=gi&k=20&c=80P3HXhettkQ8pU0nNBC_vsPov_76x4gdAJYNZR1w-E="} width="100%" height = "5%"></img><p> ${data[i].description} </p>`).on('click', () => {
                     //  map.flyTo([data[i].latitude, data[i].longitude], data[i].zoomLevel);
                 }).addTo(map);
-    
+
                 // var mylatlngs = [
                 //     [data[i].latitude, data[i].longitude],
                 //     [data[i + 1].latitude, data[i + 1].longitude]
                 // ];
-    
-    
+
+
                 const arcLineChemSup = L.Polyline.Arc([chemicalFactoryPosition[0], chemicalFactoryPosition[1]],
                     [supplierFactoryPosition[0], supplierFactoryPosition[1]], {
                     color: 'green',
@@ -119,10 +116,10 @@ fetch("./assets/location-data.json")
                     offset: 6,
                     attributes: {
                         'font-weight': 'bold',
-                        'font-size': '18','fill': 'green'
+                        'font-size': '18', 'fill': 'green'
                     }
                 });
-    
+
                 const arcLineTenSup = L.Polyline.Arc([tennaryPosition[0], tennaryPosition[1]],
                     [supplierFactoryPosition[0], supplierFactoryPosition[1]], {
                     color: 'green',
@@ -132,26 +129,25 @@ fetch("./assets/location-data.json")
                     offset: 6,
                     attributes: {
                         'font-weight': 'bold',
-                        'font-size': '18','fill': 'green'
+                        'font-size': '18', 'fill': 'green'
                     }
                 });
-    
-    
+
+
                 const arcLineSupProd = L.Polyline.Arc([supplierFactoryPosition[0], supplierFactoryPosition[1]],
                     [productionFactoryPosition[0], productionFactoryPosition[1]], {
-                    color: 'violet',
-                    vertices: 200
+                    color: 'grey',
+                    vertices: 20000
                 }).addTo(map).setText('  ►  ', {
                     repeat: false, center: true,
                     offset: 6,
                     attributes: {
                         'font-weight': 'bold',
-                        'font-size': '18','fill': 'violet'
+                        'font-size': '18', 'fill': 'grey'
                     }
                 });
             }
 
-            
         }
     })
     .catch(error => alert(error))
