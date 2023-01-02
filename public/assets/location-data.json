@@ -3,49 +3,69 @@
         "latitude": 24.1751,
         "longitude": 90.0421,
         "title": "Leather Supplier",
-        "image" : "https://www.oeko-tex.com/fileadmin/_processed_/8/d/csm_brown-leather_ad42e9171f.jpg",
         "description": "Number of Male Production Workers: 4111 <br> Number of Female Production Workers: 2743 <br> Number of Male Employees: 4669 <br>Number of Female Employees: 2773        <br>Sustainable Material Certification(s): Not Disclosed <br>Environmental & Chemical Management Certification(s): Not Disclosed",
         "zoomLevel": 18
     },
     {
         "latitude":45.9220,
         "longitude": 40.8347,
-        "title": "Chemical warehouse",
-        "description": "Number of Male Production Workers: 2454 <br> Number of Female Production Workers: 3534 <br> Number of Male Employees: 456 <br>Number of Female Employees: 35        <br>Sustainable Material Certification(s): Not Disclosed <br>Environmental & Chemical Management Certification(s): Not Disclosed",
+        "title": "Sadeeq Agro",
+        "description": "Number of Male Production Workers: 554 <br> Number of Female Production Workers: 3534 <br> Number of Male Employees: 45 <br>Number of Female Employees: 35        <br>Sustainable Material Certification(s): Not Disclosed <br>Environmental & Chemical Management Certification(s): Not Disclosed",
         "zoomLevel": 18
     },
     {
         "latitude": 40.0258,
         "longitude": 75.1780,
-        "title": "Slaughter house",
+        "title": "NK Cattle Farm",
         "description": "Number of Male Production Workers: 2454 <br> Number of Female Production Workers: 3534 <br> Number of Male Employees: 456 <br>Number of Female Employees: 35        <br>Sustainable Material Certification(s): Not Disclosed <br>Environmental & Chemical Management Certification(s): Not Disclosed",
         "zoomLevel": 18
     },
     {
         "latitude": 22.6129,
-        "longitude": 60.2295,
-        "title": "Production center",
-        "description": "Number of Male Production Workers: 2254 <br> Number of Female Production Workers: 3534 <br> Number of Male Employees: 456 <br>Number of Female Employees: 35        <br>Sustainable Material Certification(s): Not Disclosed <br>Environmental & Chemical Management Certification(s): Not Disclosed",
+        "longitude": 40.2295,
+        "title": "Dow Chemical Company",
+        "description": "Number of Male Production Workers: 254 <br> Number of Female Production Workers: 334 <br> Number of Male Employees: 56 <br>Number of Female Employees: 35        <br>Sustainable Material Certification(s): Not Disclosed <br>Environmental & Chemical Management Certification(s): Not Disclosed",
         "zoomLevel": 18
     },
     {
         "latitude": 28.3616,
         "longitude": 60.4747,
-        "title": "Textile Mills",
+        "title": "Apex Tannery Industries",
         "description": "Number of Male Production Workers: 546 <br> Number of Female Production Workers: 3534 <br> Number of Male Employees: 456 <br>Number of Female Employees: 35        <br>Sustainable Material Certification(s): Not Disclosed <br>Environmental & Chemical Management Certification(s): Not Disclosed",
         "zoomLevel": 20
     },
     {
-        "latitude": 24.1751,
-        "longitude": 90.0421,
-        "title": "Leather Supplier",
+        "latitude": 34.1751,
+        "longitude": 80.0421,
+        "title": "Hussain Tannery House",
         "description": "Number of Male Production Workers: 4111 <br> Number of Female Production Workers: 2743 <br> Number of Male Employees: 4669 <br>Number of Female Employees: 2773        <br>Sustainable Material Certification(s): Not Disclosed <br>Environmental & Chemical Management Certification(s): Not Disclosed",
         "zoomLevel": 18
     },
     {
         "latitude": 26.9239,
         "longitude": 75.8267,
-        "title": "Distribution center",
+        "title": "ZK Tannery House",
+        "description": "Number of Male Production Workers: 2154 <br> Number of Female Production Workers: 534 <br> Number of Male Employees: 456 <br>Number of Female Employees: 35        <br>Sustainable Material Certification(s): Not Disclosed <br>Environmental & Chemical Management Certification(s): Not Disclosed",
+        "zoomLevel": 18
+    },
+    {
+        "latitude": 36.9239,
+        "longitude": 95.8267,
+        "title": "Apex Leather Industries",
+        "description": "Number of Male Production Workers: 2454 <br> Number of Female Production Workers: 3534 <br> Number of Male Employees: 456 <br>Number of Female Employees: 35        <br>Sustainable Material Certification(s): Not Disclosed <br>Environmental & Chemical Management Certification(s): Not Disclosed",
+        "zoomLevel": 18
+    },
+    {
+        "latitude": 46.9239,
+        "longitude": 79.8267,
+        "title": "RMM Leather Industries",
+        "description": "Number of Male Production Workers: 2154 <br> Number of Female Production Workers: 534 <br> Number of Male Employees: 56 <br>Number of Female Employees: 35        <br>Sustainable Material Certification(s): Not Disclosed <br>Environmental & Chemical Management Certification(s): Not Disclosed",
+        "zoomLevel": 18
+    },
+    {
+        "latitude": 16.9239,
+        "longitude": 45.8267,
+        "title": "Reliance Tanneries Limited",
         "description": "Number of Male Production Workers: 2454 <br> Number of Female Production Workers: 3534 <br> Number of Male Employees: 456 <br>Number of Female Employees: 35        <br>Sustainable Material Certification(s): Not Disclosed <br>Environmental & Chemical Management Certification(s): Not Disclosed",
         "zoomLevel": 18
     }

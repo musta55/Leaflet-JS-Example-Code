@@ -9,7 +9,7 @@ let map = L.map('mymap', {
     center: [39.8282, 58.5795],
     zoom: 1,
     boxZoom: true,
-    trackResize:true
+    trackResize: true
 });
 
 const tiles = L.tileLayer('https://{s}.tile.openstreetmap.de/{z}/{x}/{y}.png', {
@@ -34,6 +34,7 @@ const markerIconProd = L.icon({
     popupAnchor: [0, -45] // point from which the popup should open relative to the iconAnchor
 });
 
+
 const markerIconSup = L.icon({
     iconUrl: ` https://api.geoapify.com/v1/icon/?type=material&color=%232b4607&icon=landmark&iconType=awesome&scaleFactor=2&apiKey=${myAPIKey}`,
     iconSize: [31, 46], // size of the icon
@@ -41,7 +42,12 @@ const markerIconSup = L.icon({
     popupAnchor: [0, -45] // point from which the popup should open relative to the iconAnchor
 });
 
-
+const markerIconCattle = L.icon({
+    iconUrl: `https://api.geoapify.com/v1/icon/?type=material&color=%23b33aba&icon=tree&iconType=awesome&apiKey=${myAPIKey}`,
+    iconSize: [31, 46], // size of the icon
+    iconAnchor: [15.5, 42], // point of the icon which will correspond to marker's location
+    popupAnchor: [0, -45] // point from which the popup should open relative to the iconAnchor
+});
 
 let iconOption = {
     iconUrl: '/assets/location-marker.svg',
@@ -52,6 +58,9 @@ let chemicalOption = {
     iconUrl: '/assets/chemical.svg',
     iconSize: [60, 60]
 };
+
+
+
 
 let ourCustomIcon = L.icon(iconOption);
 let chemicalIcon = L.icon(chemicalOption);
@@ -73,42 +82,50 @@ fetch("/assets/location-data.json")
             option.text = data[i].title;
             document.querySelector(".select-dropdown").appendChild(option);
 
-            var tennaryPosition = [data[i].latitude + getRandomInt(10), data[i].longitude + getRandomInt(10)];
-            var chemicalFactoryPosition = [data[i].latitude + getRandomInt(10), data[i].longitude + getRandomInt(0)];
-            var productionFactoryPosition = [data[i].latitude - getRandomInt(4), data[i].longitude - getRandomInt(3)];
-
+            var TanneryPosition = [data[i].latitude , data[i].longitude ];
+            var chemicalFactoryPosition = [data[i].latitude , data[i].longitude ];
+            var productionFactoryPosition = [data[i].latitude , data[i].longitude];
+            var cattleHouseProduction = [data[i].latitude, data[i].longitude ];
             if (i == 0) var supplierFactoryPosition = [data[i].latitude, data[i].longitude];
-
-
 
             // let marker = L.marker([data[i].latitude, data[i].longitude], { icon: ourCustomIcon }).bindPopup(`<h3> ${data[i].title} </h3> <p> ${data[i].description} </p>`).on('click', () => {
             //     //  map.flyTo([data[i].latitude, data[i].longitude], data[i].zoomLevel);
             // }).addTo(map);
-
-            let marker = L.marker([tennaryPosition[0], tennaryPosition[1]], { icon: ourCustomIcon }).bindPopup(`<h3> ${data[i].title} </h3> <img src=${"https://media.gettyimages.com/id/944687452/photo/dairy-farm-cows-indoor-in-the-shed.jpg?s=612x612&w=gi&k=20&c=80P3HXhettkQ8pU0nNBC_vsPov_76x4gdAJYNZR1w-E="} width="100%" height = "5%"></img> <p> ${data[i].description} </p>`).on('click', () => {
-                //  map.flyTo([data[i].latitude, data[i].longitude], data[i].zoomLevel);
-            }).addTo(map);
-
-            if (i % 2) {
-                let markerSup = L.marker([chemicalFactoryPosition[0], chemicalFactoryPosition[1]], { icon: markerIconSup }).bindPopup(`<h3> ${data[i].title} </h3> <img src=${"https://media.gettyimages.com/id/944687452/photo/dairy-farm-cows-indoor-in-the-shed.jpg?s=612x612&w=gi&k=20&c=80P3HXhettkQ8pU0nNBC_vsPov_76x4gdAJYNZR1w-E="} width="100%" height = "5%"></img><p> ${data[i].description} </p>`).on('click', () => {
+            if (i > 3 && i < 7) {
+                let markerTan = L.marker([TanneryPosition[0], TanneryPosition[1]], { icon: ourCustomIcon }).bindPopup(`<h3> ${data[i].title} </h3> <img src=${"https://media.gettyimages.com/id/944687452/photo/dairy-farm-cows-indoor-in-the-shed.jpg?s=612x612&w=gi&k=20&c=80P3HXhettkQ8pU0nNBC_vsPov_76x4gdAJYNZR1w-E="} width="100%" height = "5%"></img> <p> ${data[i].description} </p>`).on('click', () => {
                     //  map.flyTo([data[i].latitude, data[i].longitude], data[i].zoomLevel);
                 }).addTo(map);
+            }
 
+
+            if (i == 3) {
+                let markerChem = L.marker([chemicalFactoryPosition[0], chemicalFactoryPosition[1]], { icon: chemicalIcon }).bindPopup(`<h3> ${data[i].title} </h3> <img src=${"https://media.gettyimages.com/id/944687452/photo/dairy-farm-cows-indoor-in-the-shed.jpg?s=612x612&w=gi&k=20&c=80P3HXhettkQ8pU0nNBC_vsPov_76x4gdAJYNZR1w-E="} width="100%" height = "5%"></img><p> ${data[i].description} </p>`).on('click', () => {
+                    //  map.flyTo([data[i].latitude, data[i].longitude], data[i].zoomLevel);
+                }).addTo(map);
+            }
+
+            if (i >= 7 && i < 10) {
                 let markerProd = L.marker([productionFactoryPosition[0], productionFactoryPosition[1]], { icon: markerIconProd }).bindPopup(`<h3> ${data[i].title} </h3><img src=${"https://media.gettyimages.com/id/944687452/photo/dairy-farm-cows-indoor-in-the-shed.jpg?s=612x612&w=gi&k=20&c=80P3HXhettkQ8pU0nNBC_vsPov_76x4gdAJYNZR1w-E="} width="100%" height = "5%"></img> <p> ${data[i].description} </p>`).on('click', () => {
                     //  map.flyTo([data[i].latitude, data[i].longitude], data[i].zoomLevel);
                 }).addTo(map);
+            }
 
-
-                let markerChem = L.marker([supplierFactoryPosition[0], supplierFactoryPosition[1]], { icon: chemicalIcon }).bindPopup(`<h3> ${data[i].title} </h3> <img src=${"https://media.gettyimages.com/id/944687452/photo/dairy-farm-cows-indoor-in-the-shed.jpg?s=612x612&w=gi&k=20&c=80P3HXhettkQ8pU0nNBC_vsPov_76x4gdAJYNZR1w-E="} width="100%" height = "5%"></img><p> ${data[i].description} </p>`).on('click', () => {
+            let markerSup = L.marker([supplierFactoryPosition[0], supplierFactoryPosition[1]], { icon: markerIconSup }).bindPopup(`<h3> ${data[i].title} </h3> <img src=${"https://media.gettyimages.com/id/944687452/photo/dairy-farm-cows-indoor-in-the-shed.jpg?s=612x612&w=gi&k=20&c=80P3HXhettkQ8pU0nNBC_vsPov_76x4gdAJYNZR1w-E="} width="100%" height = "5%"></img><p> ${data[i].description} </p>`).on('click', () => {
+                //  map.flyTo([data[i].latitude, data[i].longitude], data[i].zoomLevel);
+            }).addTo(map);
+            if (i == 1 || i == 2) {
+                let markerCattle = L.marker([cattleHouseProduction[0], cattleHouseProduction[1]], { icon: markerIconCattle }).bindPopup(`<h3> ${data[i].title} </h3> <img src=${"https://media.gettyimages.com/id/944687452/photo/dairy-farm-cows-indoor-in-the-shed.jpg?s=612x612&w=gi&k=20&c=80P3HXhettkQ8pU0nNBC_vsPov_76x4gdAJYNZR1w-E="} width="100%" height = "5%"></img><p> ${data[i].description} </p>`).on('click', () => {
                     //  map.flyTo([data[i].latitude, data[i].longitude], data[i].zoomLevel);
                 }).addTo(map);
-
-                // var mylatlngs = [
-                //     [data[i].latitude, data[i].longitude],
-                //     [data[i + 1].latitude, data[i + 1].longitude]
-                // ];
+            }
 
 
+            // var mylatlngs = [
+            //     [data[i].latitude, data[i].longitude],
+            //     [data[i + 1].latitude, data[i + 1].longitude]
+            // ];
+
+            if (i > 2) {
                 const arcLineChemSup = L.Polyline.Arc([chemicalFactoryPosition[0], chemicalFactoryPosition[1]],
                     [supplierFactoryPosition[0], supplierFactoryPosition[1]], {
                     color: 'green',
@@ -122,7 +139,7 @@ fetch("/assets/location-data.json")
                     }
                 });
 
-                const arcLineTenSup = L.Polyline.Arc([tennaryPosition[0], tennaryPosition[1]],
+                const arcLineTenSup = L.Polyline.Arc([TanneryPosition[0], TanneryPosition[1]],
                     [supplierFactoryPosition[0], supplierFactoryPosition[1]], {
                     color: 'green',
                     vertices: 200
@@ -149,6 +166,8 @@ fetch("/assets/location-data.json")
                     }
                 });
             }
+
+
 
         }
     })
