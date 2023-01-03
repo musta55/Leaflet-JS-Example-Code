@@ -93,7 +93,7 @@ fetch("/assets/location-data.json")
     .then(data => {
         ourData = data;
 
-        for (let i = 0; i < data.length - 1; i++) {
+        for (let i = 0; i < data.length ; i++) {
             let option = document.createElement("option");
             option.value = i + 1;
             option.text = data[i].title;
@@ -103,7 +103,7 @@ fetch("/assets/location-data.json")
             var chemicalFactoryPosition = [data[i].latitude, data[i].longitude];
             var productionFactoryPosition = [data[i].latitude, data[i].longitude];
             var cattleHouseProduction = [data[i].latitude, data[i].longitude];
-            if (i == 0) var supplierFactoryPosition = [data[i].latitude, data[i].longitude];
+             var supplierFactoryPosition = [data[i].latitude, data[i].longitude];
 
             // let marker = L.marker([data[i].latitude, data[i].longitude], { icon: ourCustomIcon }).bindPopup(`<h3> ${data[i].title} </h3> <p> ${data[i].description} </p>`).on('click', () => {
             //     //  map.flyTo([data[i].latitude, data[i].longitude], data[i].zoomLevel);
@@ -115,21 +115,25 @@ fetch("/assets/location-data.json")
             }
 
 
-            if (i == 3) {
+            if (i == 3 || i==10) {
                 let markerChem = L.marker([chemicalFactoryPosition[0], chemicalFactoryPosition[1]], { icon: chemicalIcon }).bindPopup(`<h3> ${data[i].title} </h3> <img src=${"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRiOtG4TFSY2KqcXTtRNZdAWozreQehbpbq2isswPQyli0Ye8q4HPXs-3R7SKHEyhYHF3U&usqp=CAU"} width="100%" height = "5%"></img><p> ${data[i].description} </p>`).on('click', () => {
                     //  map.flyTo([data[i].latitude, data[i].longitude], data[i].zoomLevel);
                 }).addTo(map);
             }
 
-            if (i >= 7 && i < 10) {
-                let markerProd = L.marker([productionFactoryPosition[0], productionFactoryPosition[1]], { icon: markerIconProd }).bindPopup(`<h3> ${data[i].title} </h3><img src=${"https://www.lightcastlebd.com/wp-content/uploads/2019/05/bangladesh-leather-industry.jpg"} width="100%" height = "5%"></img> <p> ${data[i].description} </p>`).on('click', () => {
+            if (i >= 8 && i < 10) {
+                let markerProd = L.marker([productionFactoryPosition[0], productionFactoryPosition[1]], { icon: markerIconProd }).bindPopup(`<h3> ${data[i].title} </h3><img src=${"https://www.leatherluxury.it/media/brand/DAN_0798.jpg"} width="100%" height = "5%"></img> <p> ${data[i].description} </p>`).on('click', () => {
                     //  map.flyTo([data[i].latitude, data[i].longitude], data[i].zoomLevel);
                 }).addTo(map);
             }
 
-            let markerSup = L.marker([supplierFactoryPosition[0], supplierFactoryPosition[1]], { icon: markerIconSup }).bindPopup(`<h3> ${data[i].title} </h3> <img src=${"https://www.leatherluxury.it/media/brand/DAN_0798.jpg"} width="100%" height = "5%"></img><p> ${data[i].description} </p>`).on('click', () => {
-                //  map.flyTo([data[i].latitude, data[i].longitude], data[i].zoomLevel);
-            }).addTo(map);
+            if(i==0)
+            {
+                let markerSup = L.marker([supplierFactoryPosition[0], supplierFactoryPosition[1]], { icon: markerIconSup }).bindPopup(`<h3> ${data[i].title} </h3> <img src=${"https://www.lightcastlebd.com/wp-content/uploads/2019/05/bangladesh-leather-industry.jpg"} width="100%" height = "5%"></img><p> ${data[i].description} </p>`).on('click', () => {
+                    //  map.flyTo([data[i].latitude, data[i].longitude], data[i].zoomLevel);
+                }).addTo(map);
+            }
+
             
             if (i == 1 || i == 2) {
                 let markerCattle = L.marker([cattleHouseProduction[0], cattleHouseProduction[1]], { icon: cowIcon }).bindPopup(`<h3> ${data[i].title} </h3> <img src=${"https://static6.depositphotos.com/1003671/579/i/450/depositphotos_5792338-stock-photo-red-angus.jpg"} width="100%" height = "5%"></img><p> ${data[i].description} </p>`).on('click', () => {
@@ -162,7 +166,7 @@ fetch("/assets/location-data.json")
                     });
                 }
 
-                else if (i > 7 && i<=9) {
+                else if (i > 7 && i<=10) {
                     const arcLineTenSup = L.Polyline.Arc([data[i-1].latitude, data[i-1].longitude],
                         [data[i ].latitude, data[i ].longitude], {
                         color: 'green',
@@ -193,7 +197,7 @@ fetch("/assets/location-data.json")
                     });
                 }
 
-                else if (i >= 2 && i < 4) {
+                else if (i >= 2 && i < 4 || i>=9) {
                     const arcLineCatTan = L.Polyline.Arc([data[i+1].latitude, data[i+1].longitude],
                         [data[i ].latitude, data[i ].longitude], {
                         color: 'red',
