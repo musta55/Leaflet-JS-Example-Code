@@ -2,12 +2,25 @@
 let ourData = [];
 
 const myAPIKey = "fb78e7f91cd847519128e3b58e348171";
+const locationurl = window.location.href;
+let lat=39.8282,long= 58.5795;
 
+if(locationurl.match("173b")=="173b")
+{
+    lat = 23.7986,
+    long = 90.2680
+}
+
+if(locationurl.match("52f6")=="52f6")
+{
+    lat = 41.86266587498115,
+    long = 12.47150071100284
+}
 
 // const myAPIKey = process.env["key"];
 let map = L.map('mymap', {
-    center: [39.8282, 58.5795],
-    zoom: 1,
+    center: [lat, long],
+    zoom: 8,
     boxZoom: true,
     trackResize: true
 });
@@ -59,8 +72,14 @@ let chemicalOption = {
     iconSize: [60, 60]
 };
 
+let cattleOption = {
+    iconUrl: '/assets/cow.svg',
+    iconSize: [40, 40]
+};
+
 let ourCustomIcon = L.icon(iconOption);
 let chemicalIcon = L.icon(chemicalOption);
+let cowIcon  = L.icon(cattleOption);
 
 
 function getRandomInt(max) {
@@ -73,6 +92,7 @@ fetch("/assets/location-data.json")
     .then(response => response.json())
     .then(data => {
         ourData = data;
+
         for (let i = 0; i < data.length - 1; i++) {
             let option = document.createElement("option");
             option.value = i + 1;
@@ -107,11 +127,12 @@ fetch("/assets/location-data.json")
                 }).addTo(map);
             }
 
-            let markerSup = L.marker([supplierFactoryPosition[0], supplierFactoryPosition[1]], { icon: markerIconSup }).bindPopup(`<h3> ${data[i].title} </h3> <img src=${"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9eV6AsUfuLwUYTzp84XMhK6nKTgGeUkLO4w&usqp=CAU"} width="100%" height = "5%"></img><p> ${data[i].description} </p>`).on('click', () => {
+            let markerSup = L.marker([supplierFactoryPosition[0], supplierFactoryPosition[1]], { icon: markerIconSup }).bindPopup(`<h3> ${data[i].title} </h3> <img src=${"https://www.leatherluxury.it/media/brand/DAN_0798.jpg"} width="100%" height = "5%"></img><p> ${data[i].description} </p>`).on('click', () => {
                 //  map.flyTo([data[i].latitude, data[i].longitude], data[i].zoomLevel);
             }).addTo(map);
+            
             if (i == 1 || i == 2) {
-                let markerCattle = L.marker([cattleHouseProduction[0], cattleHouseProduction[1]], { icon: markerIconCattle }).bindPopup(`<h3> ${data[i].title} </h3> <img src=${"https://media.gettyimages.com/id/944687452/photo/dairy-farm-cows-indoor-in-the-shed.jpg?s=612x612&w=gi&k=20&c=80P3HXhettkQ8pU0nNBC_vsPov_76x4gdAJYNZR1w-E="} width="100%" height = "5%"></img><p> ${data[i].description} </p>`).on('click', () => {
+                let markerCattle = L.marker([cattleHouseProduction[0], cattleHouseProduction[1]], { icon: cowIcon }).bindPopup(`<h3> ${data[i].title} </h3> <img src=${"https://static6.depositphotos.com/1003671/579/i/450/depositphotos_5792338-stock-photo-red-angus.jpg"} width="100%" height = "5%"></img><p> ${data[i].description} </p>`).on('click', () => {
                     //  map.flyTo([data[i].latitude, data[i].longitude], data[i].zoomLevel);
                 }).addTo(map);
             }
@@ -135,22 +156,22 @@ fetch("/assets/location-data.json")
                         repeat: false, center: true,
                         offset: 6,
                         attributes: {
-                            'font-weight': 'bold',
+                            // 'font-weight': 'bold',
                             'font-size': '18', 'fill': 'purple'
                         }
                     });
                 }
 
                 else if (i > 7 && i<=9) {
-                    const arcLineTenSup = L.Polyline.Arc([data[i].latitude, data[i].longitude],
-                        [data[i - 1].latitude, data[i - 1].longitude], {
+                    const arcLineTenSup = L.Polyline.Arc([data[i-1].latitude, data[i-1].longitude],
+                        [data[i ].latitude, data[i ].longitude], {
                         color: 'green',
                         vertices: 200
                     }).addTo(map).setText('  ►  ', {
                         repeat: false, center: true,
                         offset: 6,
                         attributes: {
-                            'font-weight': 'bold',
+                            // 'font-weight': 'bold',
                             'font-size': '18', 'fill': 'green'
                         }
                     });
@@ -158,31 +179,31 @@ fetch("/assets/location-data.json")
 
 
                 else if (i >= 0 && i < 2) {
-                    const arcLineSupProd = L.Polyline.Arc([data[i].latitude, data[i].longitude],
-                        [data[i + 1].latitude, data[i + 1].longitude], {
+                    const arcLineSupProd = L.Polyline.Arc([data[i+1].latitude, data[i+1].longitude],
+                        [data[i ].latitude, data[i ].longitude], {
                         color: 'grey',
                         vertices: 20000
                     }).addTo(map).setText('  ►  ', {
                         repeat: false, center: true,
                         offset: 6,
                         attributes: {
-                            'font-weight': 'bold',
+                            // 'font-weight': 'bold',
                             'font-size': '18', 'fill': 'grey'
                         }
                     });
                 }
 
                 else if (i >= 2 && i < 4) {
-                    const arcLineCatTan = L.Polyline.Arc([data[i].latitude, data[i].longitude],
-                        [data[i + 1].latitude, data[i + 1].longitude], {
+                    const arcLineCatTan = L.Polyline.Arc([data[i+1].latitude, data[i+1].longitude],
+                        [data[i ].latitude, data[i ].longitude], {
                         color: 'red',
                         vertices: 20000
                     }).addTo(map).setText('  ►  ', {
                         repeat: false, center: true,
                         offset: 6,
                         attributes: {
-                            'font-weight': 'bold',
-                            'font-size': '18', 'fill': 'red'
+                            // 'font-weight': 'bold',
+                            'font-size': '10', 'fill': 'red'
                         }
                     });
                 }
