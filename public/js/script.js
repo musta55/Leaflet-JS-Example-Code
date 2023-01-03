@@ -109,9 +109,8 @@ fetch("/assets/location-data.json")
             var cattleHouseProduction = [data[i].latitude, data[i].longitude];
             var supplierFactoryPosition = [data[i].latitude, data[i].longitude];
 
-             
 
-            if (i > 3 && i < 7) {
+            if (i > 3 && i <= 7) {
                 tanArr.push(TanneryPosition);
                 let markerTan = L.marker([TanneryPosition[0], TanneryPosition[1]], { icon: ourCustomIcon }).bindPopup(`<h3> ${data[i].title} </h3> <img src=${"https://media.istockphoto.com/id/177292389/photo/ostrich-leather-tannery.jpg?s=612x612&w=0&k=20&c=O8sCRtnL2fvTd7eQHC0K1w66rLj8HZHvxn5BQTLNtHI="} width="100%" height = "5%"></img> <p> ${data[i].description} </p>`).on('click', () => {
                     //  map.flyTo([data[i].latitude, data[i].longitude], data[i].zoomLevel);
@@ -119,7 +118,7 @@ fetch("/assets/location-data.json")
             }
 
 
-            if (i == 3 || i==10) {
+            if (i == 3 || i==8) {
                 chemArr.push(chemicalFactoryPosition);
 
                 let markerChem = L.marker([chemicalFactoryPosition[0], chemicalFactoryPosition[1]], { icon: chemicalIcon }).bindPopup(`<h3> ${data[i].title} </h3> <img src=${"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRiOtG4TFSY2KqcXTtRNZdAWozreQehbpbq2isswPQyli0Ye8q4HPXs-3R7SKHEyhYHF3U&usqp=CAU"} width="100%" height = "5%"></img><p> ${data[i].description} </p>`).on('click', () => {
@@ -127,14 +126,14 @@ fetch("/assets/location-data.json")
                 }).addTo(map);
             }
 
-            if (i >= 8 && i < 10) {
+            if (i == 0 || i ==9) {
                 prodArr.push(productionFactoryPosition);
                 let markerProd = L.marker([productionFactoryPosition[0], productionFactoryPosition[1]], { icon: markerIconProd }).bindPopup(`<h3> ${data[i].title} </h3><img src=${"https://www.leatherluxury.it/media/brand/DAN_0798.jpg"} width="100%" height = "5%"></img> <p> ${data[i].description} </p>`).on('click', () => {
                     //  map.flyTo([data[i].latitude, data[i].longitude], data[i].zoomLevel);
                 }).addTo(map);
             }
 
-            if(i==0)
+            if(i==1)
             {
                 supArr.push(supplierFactoryPosition);
                 let markerSup = L.marker([supplierFactoryPosition[0], supplierFactoryPosition[1]], { icon: markerIconSup }).bindPopup(`<h3> ${data[i].title} </h3> <img src=${"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSH1W1-FEwCQA6_Y0X6YKvDQIBP7hbZ7IEEYdvoFQGvnQ&s"} width="100%" height = "5%"></img><p> ${data[i].description} </p>`).on('click', () => {
@@ -143,12 +142,13 @@ fetch("/assets/location-data.json")
             }
 
             
-            if (i == 1 || i == 2) {
+            if (i == 2 ) {
                 catArr.push(cattleHouseProduction);
                 let markerCattle = L.marker([cattleHouseProduction[0], cattleHouseProduction[1]], { icon: cowIcon }).bindPopup(`<h3> ${data[i].title} </h3> <img src=${"https://static6.depositphotos.com/1003671/579/i/450/depositphotos_5792338-stock-photo-red-angus.jpg"} width="100%" height = "5%"></img><p> ${data[i].description} </p>`).on('click', () => {
                     //  map.flyTo([data[i].latitude, data[i].longitude], data[i].zoomLevel);
                 }).addTo(map);
             }
+        }
 
 
             // var mylatlngs = [
@@ -157,7 +157,7 @@ fetch("/assets/location-data.json")
             // ];
 
 
-        }
+        
         // for (let i = 0; i < data.length - 1; i++) {
         //     {
         //         if (i > 3 && i < 7) {
@@ -245,6 +245,19 @@ fetch("/assets/location-data.json")
 
             const arcLineslotTan = L.Polyline.Arc([supArr[i][0], supArr[i][1]],
                 [tanArr[i][0],tanArr[i][1]], {
+                color: 'black',
+                vertices: 200
+            }).addTo(map).setText('  ►  ', {
+                repeat: false, center: true,
+                offset: 6,
+                attributes: {
+                    // 'font-weight': 'bold',
+                    'font-size': '18', 'fill': 'black'
+                }
+            });
+
+            const arcLinesChemTan = L.Polyline.Arc([chemArr[i][0], chemArr[i][1]],
+                [tanArr[i][0],tanArr[i][1]], {
                 color: 'red',
                 vertices: 200
             }).addTo(map).setText('  ►  ', {
@@ -256,7 +269,7 @@ fetch("/assets/location-data.json")
                 }
             });
 
-            const arcLinesChemTan = L.Polyline.Arc([chemArr[i][0], chemArr[i][1]],
+            const arcLinesChemTan2 = L.Polyline.Arc([chemArr[i+1][0], chemArr[i+1][1]],
                 [tanArr[i][0],tanArr[i][1]], {
                 color: 'red',
                 vertices: 200
