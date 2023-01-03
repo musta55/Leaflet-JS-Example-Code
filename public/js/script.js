@@ -226,7 +226,7 @@ fetch("/assets/location-data.json")
 
         console.log(tanArr, chemArr, supArr, prodArr,catArr)
 
-        for(let i=0;i <2;i++)
+        for(let i=0;i <1;i++)
         {
 
             console.log("Cattle to Slaughter"+ catArr[i][0], catArr[i][1] +"and"+ supArr[i][0],supArr[i][1])
