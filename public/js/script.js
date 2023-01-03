@@ -92,7 +92,11 @@ fetch("/assets/location-data.json")
     .then(response => response.json())
     .then(data => {
         ourData = data;
-
+        var tanArr = [];
+        var chemArr = [];
+        var prodArr = [];
+        var catArr = [];
+        var supArr = [];
         for (let i = 0; i < data.length ; i++) {
             let option = document.createElement("option");
             option.value = i + 1;
@@ -103,12 +107,12 @@ fetch("/assets/location-data.json")
             var chemicalFactoryPosition = [data[i].latitude, data[i].longitude];
             var productionFactoryPosition = [data[i].latitude, data[i].longitude];
             var cattleHouseProduction = [data[i].latitude, data[i].longitude];
-             var supplierFactoryPosition = [data[i].latitude, data[i].longitude];
+            var supplierFactoryPosition = [data[i].latitude, data[i].longitude];
 
-            // let marker = L.marker([data[i].latitude, data[i].longitude], { icon: ourCustomIcon }).bindPopup(`<h3> ${data[i].title} </h3> <p> ${data[i].description} </p>`).on('click', () => {
-            //     //  map.flyTo([data[i].latitude, data[i].longitude], data[i].zoomLevel);
-            // }).addTo(map);
+             
+
             if (i > 3 && i < 7) {
+                tanArr.push(TanneryPosition);
                 let markerTan = L.marker([TanneryPosition[0], TanneryPosition[1]], { icon: ourCustomIcon }).bindPopup(`<h3> ${data[i].title} </h3> <img src=${"https://media.istockphoto.com/id/177292389/photo/ostrich-leather-tannery.jpg?s=612x612&w=0&k=20&c=O8sCRtnL2fvTd7eQHC0K1w66rLj8HZHvxn5BQTLNtHI="} width="100%" height = "5%"></img> <p> ${data[i].description} </p>`).on('click', () => {
                     //  map.flyTo([data[i].latitude, data[i].longitude], data[i].zoomLevel);
                 }).addTo(map);
@@ -116,12 +120,15 @@ fetch("/assets/location-data.json")
 
 
             if (i == 3 || i==10) {
+                chemArr.push(chemicalFactoryPosition);
+
                 let markerChem = L.marker([chemicalFactoryPosition[0], chemicalFactoryPosition[1]], { icon: chemicalIcon }).bindPopup(`<h3> ${data[i].title} </h3> <img src=${"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRiOtG4TFSY2KqcXTtRNZdAWozreQehbpbq2isswPQyli0Ye8q4HPXs-3R7SKHEyhYHF3U&usqp=CAU"} width="100%" height = "5%"></img><p> ${data[i].description} </p>`).on('click', () => {
                     //  map.flyTo([data[i].latitude, data[i].longitude], data[i].zoomLevel);
                 }).addTo(map);
             }
 
             if (i >= 8 && i < 10) {
+                prodArr.push(productionFactoryPosition);
                 let markerProd = L.marker([productionFactoryPosition[0], productionFactoryPosition[1]], { icon: markerIconProd }).bindPopup(`<h3> ${data[i].title} </h3><img src=${"https://www.leatherluxury.it/media/brand/DAN_0798.jpg"} width="100%" height = "5%"></img> <p> ${data[i].description} </p>`).on('click', () => {
                     //  map.flyTo([data[i].latitude, data[i].longitude], data[i].zoomLevel);
                 }).addTo(map);
@@ -129,13 +136,15 @@ fetch("/assets/location-data.json")
 
             if(i==0)
             {
-                let markerSup = L.marker([supplierFactoryPosition[0], supplierFactoryPosition[1]], { icon: markerIconSup }).bindPopup(`<h3> ${data[i].title} </h3> <img src=${"https://www.lightcastlebd.com/wp-content/uploads/2019/05/bangladesh-leather-industry.jpg"} width="100%" height = "5%"></img><p> ${data[i].description} </p>`).on('click', () => {
+                supArr.push(supplierFactoryPosition);
+                let markerSup = L.marker([supplierFactoryPosition[0], supplierFactoryPosition[1]], { icon: markerIconSup }).bindPopup(`<h3> ${data[i].title} </h3> <img src=${"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSH1W1-FEwCQA6_Y0X6YKvDQIBP7hbZ7IEEYdvoFQGvnQ&s"} width="100%" height = "5%"></img><p> ${data[i].description} </p>`).on('click', () => {
                     //  map.flyTo([data[i].latitude, data[i].longitude], data[i].zoomLevel);
                 }).addTo(map);
             }
 
             
             if (i == 1 || i == 2) {
+                catArr.push(cattleHouseProduction);
                 let markerCattle = L.marker([cattleHouseProduction[0], cattleHouseProduction[1]], { icon: cowIcon }).bindPopup(`<h3> ${data[i].title} </h3> <img src=${"https://static6.depositphotos.com/1003671/579/i/450/depositphotos_5792338-stock-photo-red-angus.jpg"} width="100%" height = "5%"></img><p> ${data[i].description} </p>`).on('click', () => {
                     //  map.flyTo([data[i].latitude, data[i].longitude], data[i].zoomLevel);
                 }).addTo(map);
@@ -149,71 +158,129 @@ fetch("/assets/location-data.json")
 
 
         }
-        for (let i = 0; i < data.length - 1; i++) {
-            {
-                if (i > 3 && i < 7) {
-                    const arcLineChemSup = L.Polyline.Arc([data[i].latitude, data[i].longitude],
-                        [data[i + 1].latitude, data[i + 1].longitude], {
-                        color: 'purple',
-                        vertices: 200
-                    }).addTo(map).setText('  ►  ', {
-                        repeat: false, center: true,
-                        offset: 6,
-                        attributes: {
-                            // 'font-weight': 'bold',
-                            'font-size': '18', 'fill': 'purple'
-                        }
-                    });
+        // for (let i = 0; i < data.length - 1; i++) {
+        //     {
+        //         if (i > 3 && i < 7) {
+        //             const arcLineChemSup = L.Polyline.Arc([data[i].latitude, data[i].longitude],
+        //                 [data[i + 1].latitude, data[i + 1].longitude], {
+        //                 color: 'purple',
+        //                 vertices: 200
+        //             }).addTo(map).setText('  ►  ', {
+        //                 repeat: false, center: true,
+        //                 offset: 6,
+        //                 attributes: {
+        //                     // 'font-weight': 'bold',
+        //                     'font-size': '18', 'fill': 'purple'
+        //                 }
+        //             });
+        //         }
+
+        //         else if (i > 7 && i<=10) {
+        //             const arcLineTenSup = L.Polyline.Arc([data[i-1].latitude, data[i-1].longitude],
+        //                 [data[i ].latitude, data[i ].longitude], {
+        //                 color: 'green',
+        //                 vertices: 200
+        //             }).addTo(map).setText('  ►  ', {
+        //                 repeat: false, center: true,
+        //                 offset: 6,
+        //                 attributes: {
+        //                     // 'font-weight': 'bold',
+        //                     'font-size': '18', 'fill': 'green'
+        //                 }
+        //             });
+        //         }
+
+
+        //         else if (i >= 0 && i < 2) {
+        //             const arcLineSupProd = L.Polyline.Arc([data[i+1].latitude, data[i+1].longitude],
+        //                 [data[i ].latitude, data[i ].longitude], {
+        //                 color: 'grey',
+        //                 vertices: 20000
+        //             }).addTo(map).setText('  ►  ', {
+        //                 repeat: false, center: true,
+        //                 offset: 6,
+        //                 attributes: {
+        //                     // 'font-weight': 'bold',
+        //                     'font-size': '18', 'fill': 'grey'
+        //                 }
+        //             });
+        //         }
+
+        //         else if (i >= 2 && i < 4 || i>=9) {
+        //             const arcLineCatTan = L.Polyline.Arc([data[i+1].latitude, data[i+1].longitude],
+        //                 [data[i ].latitude, data[i ].longitude], {
+        //                 color: 'red',
+        //                 vertices: 20000
+        //             }).addTo(map).setText('  ►  ', {
+        //                 repeat: false, center: true,
+        //                 offset: 6,
+        //                 attributes: {
+        //                     // 'font-weight': 'bold',
+        //                     'font-size': '10', 'fill': 'red'
+        //                 }
+        //             });
+        //         }
+
+        //     }
+        // }
+
+        console.log(tanArr, chemArr, supArr, prodArr,catArr)
+
+        for(let i=0;i <1;i++)
+        {
+            const arcLineCatSlot = L.Polyline.Arc([catArr[i][0], catArr[i][1]],
+                [supArr[i][0],supArr[i][1]], {
+                color: 'black',
+                vertices: 200
+            }).addTo(map).setText('  ►  ', {
+                repeat: false, center: true,
+                offset: 6,
+                attributes: {
+                    // 'font-weight': 'bold',
+                    'font-size': '18', 'fill': 'black'
                 }
+            });
 
-                else if (i > 7 && i<=10) {
-                    const arcLineTenSup = L.Polyline.Arc([data[i-1].latitude, data[i-1].longitude],
-                        [data[i ].latitude, data[i ].longitude], {
-                        color: 'green',
-                        vertices: 200
-                    }).addTo(map).setText('  ►  ', {
-                        repeat: false, center: true,
-                        offset: 6,
-                        attributes: {
-                            // 'font-weight': 'bold',
-                            'font-size': '18', 'fill': 'green'
-                        }
-                    });
+            const arcLineslotTan = L.Polyline.Arc([supArr[i][0], supArr[i][1]],
+                [tanArr[i][0],tanArr[i][1]], {
+                color: 'red',
+                vertices: 200
+            }).addTo(map).setText('  ►  ', {
+                repeat: false, center: true,
+                offset: 6,
+                attributes: {
+                    // 'font-weight': 'bold',
+                    'font-size': '18', 'fill': 'red'
                 }
+            });
 
-
-                else if (i >= 0 && i < 2) {
-                    const arcLineSupProd = L.Polyline.Arc([data[i+1].latitude, data[i+1].longitude],
-                        [data[i ].latitude, data[i ].longitude], {
-                        color: 'grey',
-                        vertices: 20000
-                    }).addTo(map).setText('  ►  ', {
-                        repeat: false, center: true,
-                        offset: 6,
-                        attributes: {
-                            // 'font-weight': 'bold',
-                            'font-size': '18', 'fill': 'grey'
-                        }
-                    });
+            const arcLinesChemTan = L.Polyline.Arc([chemArr[i][0], chemArr[i][1]],
+                [tanArr[i][0],tanArr[i][1]], {
+                color: 'red',
+                vertices: 200
+            }).addTo(map).setText('  ►  ', {
+                repeat: false, center: true,
+                offset: 6,
+                attributes: {
+                    // 'font-weight': 'bold',
+                    'font-size': '18', 'fill': 'red'
                 }
+            });
 
-                else if (i >= 2 && i < 4 || i>=9) {
-                    const arcLineCatTan = L.Polyline.Arc([data[i+1].latitude, data[i+1].longitude],
-                        [data[i ].latitude, data[i ].longitude], {
-                        color: 'red',
-                        vertices: 20000
-                    }).addTo(map).setText('  ►  ', {
-                        repeat: false, center: true,
-                        offset: 6,
-                        attributes: {
-                            // 'font-weight': 'bold',
-                            'font-size': '10', 'fill': 'red'
-                        }
-                    });
+            const arcLinesTanProd = L.Polyline.Arc([tanArr[i][0], tanArr[i][1]],
+                [prodArr[i][0],prodArr[i][1]], {
+                color: 'green',
+                vertices: 200
+            }).addTo(map).setText('  ►  ', {
+                repeat: false, center: true,
+                offset: 6,
+                attributes: {
+                    // 'font-weight': 'bold',
+                    'font-size': '18', 'fill': 'green'
                 }
-
-            }
+            });
         }
+
 
     })
     .catch(error => alert(error))
