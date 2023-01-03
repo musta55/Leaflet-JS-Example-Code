@@ -59,9 +59,6 @@ let chemicalOption = {
     iconSize: [60, 60]
 };
 
-
-
-
 let ourCustomIcon = L.icon(iconOption);
 let chemicalIcon = L.icon(chemicalOption);
 
@@ -196,9 +193,9 @@ fetch("/assets/location-data.json")
     })
     .catch(error => alert(error))
 
-document.querySelector(".map-zoom-out-btn").addEventListener('click', () => {
-    map.flyTo([19.5937, 78.9629], 5);
-});
+// document.querySelector(".map-zoom-out-btn").addEventListener('click', () => {
+//     map.flyTo([19.5937, 78.9629], 5);
+// });
 
 document.querySelector(".search-btn").addEventListener('click', () => {
     let select = document.querySelector(".select-dropdown");
