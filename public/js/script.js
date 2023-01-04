@@ -130,9 +130,9 @@ fetch("/assets/location-data.json")
                 }).addTo(map);
             }
 
-            if (i ==9) {
+            if (i ==0) {
                 prodArr.push(productionFactoryPosition);
-                let markerProd = L.marker([productionFactoryPosition[0], productionFactoryPosition[1]], { icon: markerIconProd }).bindPopup(`<h3> ${data[i].title} </h3><img src=${"https://www.leatherluxury.it/media/brand/DAN_0798.jpg"} width="100%" height = "5%"></img> <p> ${data[i].description} </p>`,{ maxWidth: 500,minWidth:400, autoPan: false }).on('click', () => {
+                let markerProd = L.marker([productionFactoryPosition[0], productionFactoryPosition[1]], { icon: markerIconProd }).bindPopup(`<h3> ${data[i].title} </h3><img src=${"https://www.leatherluxury.it/media/brand/DAN_0798.jpg"} width="100%" height = "5%"></img> <p> ${data[i].description} </p>`,{ maxWidth: 300,minWidth:200, autoPan: false }).on('click', () => {
                     //  map.flyTo([data[i].latitude, data[i].longitude], data[i].zoomLevel);
                 }).addTo(map);
             }
