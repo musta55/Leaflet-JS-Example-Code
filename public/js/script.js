@@ -130,7 +130,7 @@ fetch("/assets/location-data.json")
                 }).addTo(map);
             }
 
-            if (i == 0 || i ==9) {
+            if (i ==9) {
                 prodArr.push(productionFactoryPosition);
                 let markerProd = L.marker([productionFactoryPosition[0], productionFactoryPosition[1]], { icon: markerIconProd }).bindPopup(`<h3> ${data[i].title} </h3><img src=${"https://www.leatherluxury.it/media/brand/DAN_0798.jpg"} width="100%" height = "5%"></img> <p> ${data[i].description} </p>`,{ maxWidth: 500,minWidth:400, autoPan: false }).on('click', () => {
                     //  map.flyTo([data[i].latitude, data[i].longitude], data[i].zoomLevel);
@@ -148,7 +148,7 @@ fetch("/assets/location-data.json")
             
             if (i == 2 ) {
                 catArr.push(cattleHouseProduction);
-                let markerCattle = L.marker([cattleHouseProduction[0], cattleHouseProduction[1]], { icon: cowIcon }).bindPopup(`<h3> ${data[i].title} </h3> <img src=${"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRL6nNqxzffUktpXfWFk0JuHXfro6qNFlla4w&usqp=CAU"} width="100%" height = "5%"></img><p> ${data[i].description} </p>`, { maxWidth: 500,minWidth:400, autoPan: false }).on('click', () => {
+                let markerCattle = L.marker([cattleHouseProduction[0], cattleHouseProduction[1]], { icon: cowIcon }).bindPopup(`<h3> ${data[i].title} </h3> <img src=${"https://static6.depositphotos.com/1003671/579/i/450/depositphotos_5792338-stock-photo-red-angus.jpg"} width="100%" height = "5%"></img><p> ${data[i].description} </p>`, { maxWidth: 500,minWidth:400, autoPan: false }).on('click', () => {
                     //  map.flyTo([data[i].latitude, data[i].longitude], data[i].zoomLevel);
                 }).addTo(map);
             }
