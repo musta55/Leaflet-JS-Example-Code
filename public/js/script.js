@@ -110,7 +110,7 @@ fetch("/assets/location-data.json")
             var supplierFactoryPosition = [data[i].latitude, data[i].longitude];
 
 
-            if (i > 3 && i <= 7) {
+            if (i ==4) {
                 tanArr.push(TanneryPosition);
                 let markerTan = L.marker([TanneryPosition[0], TanneryPosition[1]], { icon: ourCustomIcon }).bindPopup(`<h3> ${data[i].title} </h3> <img src=${"https://media.istockphoto.com/id/177292389/photo/ostrich-leather-tannery.jpg?s=612x612&w=0&k=20&c=O8sCRtnL2fvTd7eQHC0K1w66rLj8HZHvxn5BQTLNtHI="} width="100%" height = "5%"></img> <p> ${data[i].description} </p>`).on('click', () => {
                     //  map.flyTo([data[i].latitude, data[i].longitude], data[i].zoomLevel);
