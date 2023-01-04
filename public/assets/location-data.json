@@ -10,9 +10,11 @@
         "latitude": 25.7167,
         "longitude": 88.9333,
         "title": "Sadeeq Agro (Butcher House)",
-        "description": "Buther Name: Hamza Ali <br> Slaughter Date: 24th December, 2022.<br>Location: kurigram <br>Buthcer Method: Manual <br>Number of Male Production Workers: 54 <br> Number of Female Production Workers: 34 <br> Number of Male Employees: 14 <br>Number of Female Employees: 35 <br> Certifications <br>OHS&S (Ocupational Health & Safety Management System)<br>BTA (Bangladesh Tanners Association)<br>ISO 45001<br>LWG (Leather Working Group)<br>Labour Law Certificate",
+        "description": "Buther Name: Hamza Ali <br> Slaughter Date: 24th December, 2022.<br>Location: kurigram <br>Buthcer Method: Manual <br>Number of Male Production Workers: 54 <br> Number of Female Production Workers: 34 <br> Number of Male Employees: 14 <br>Number of Female Employees: 35 <br> Certifications <br>OHS&S (Ocupational Health & Safety Management System)",
         "zoomLevel": 18
     },
+
+    
     {
         "latitude": 26.234,
         "longitude": 89.28145416648,
@@ -66,7 +68,7 @@
         "latitude": 48.8566,
         "longitude": 2.3522,
         "title": "Bagtime Italia - Fabbrica di borse",
-        "description": "Address: Via Silvestro Gherardi, 58, 00146 Roma RM, Italy <br> Hours:  Open ⋅ Closes 1PM ⋅ Reopens 2PM<br>Phone: +39 06 558 6963<br>Worker Well-Being Program(s): Childcare; Medical Clinics; Safety Education Training & Education; Staff Canteen; Transportation Assistance<br>Community Development Program(s): Beach Clean Ups; Blood Donation; Community Service; Donation Programs; Scholarship Program; Tree Planting",
+        "description": "Address: Via Silvestro Gherardi, 58, 00146 Roma RM, Italy <br> Hours:  Open ⋅ Closes 1PM ⋅ Reopens 2PM<br>Phone: +39 06 558 6963<br>Worker Well-Being Program(s): Childcare; Medical Clinics; ",
         "zoomLevel": 18
     }
 ]

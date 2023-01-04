@@ -1,6 +1,10 @@
 //let map = L.map('mymap').setView([19.5937, 78.9629], 5);
 let ourData = [];
 
+
+//<br>BTA (Bangladesh Tanners Association)<br>ISO 45001<br>LWG (Leather Working Group)<br>Labour Law Certificate
+
+// Safety Education Training & Education; Staff Canteen; Transportation Assistance<br>Community Development Program(s): Beach Clean Ups; Blood Donation; Community Service; Donation Programs; Scholarship Program; Tree Planting
 const myAPIKey = "fb78e7f91cd847519128e3b58e348171";
 const locationurl = window.location.href;
 let lat=39.8282,long= 58.5795;
@@ -112,7 +116,7 @@ fetch("/assets/location-data.json")
 
             if (i ==4) {
                 tanArr.push(TanneryPosition);
-                let markerTan = L.marker([TanneryPosition[0], TanneryPosition[1]], { icon: ourCustomIcon }).bindPopup(`<h3> ${data[i].title} </h3> <img src=${"https://media.istockphoto.com/id/177292389/photo/ostrich-leather-tannery.jpg?s=612x612&w=0&k=20&c=O8sCRtnL2fvTd7eQHC0K1w66rLj8HZHvxn5BQTLNtHI="} width="100%" height = "5%"></img> <p> ${data[i].description} </p>`).on('click', () => {
+                let markerTan = L.marker([TanneryPosition[0], TanneryPosition[1]], { icon: ourCustomIcon }).bindPopup(`<h3> ${data[i].title} </h3> <img src=${"https://media.istockphoto.com/id/177292389/photo/ostrich-leather-tannery.jpg?s=612x612&w=0&k=20&c=O8sCRtnL2fvTd7eQHC0K1w66rLj8HZHvxn5BQTLNtHI="} width="100%" height = "5%"></img> <p> ${data[i].description} </p>`, { maxWidth: 700,minWidth:400, autoPan: false }).on('click', () => {
                     //  map.flyTo([data[i].latitude, data[i].longitude], data[i].zoomLevel);
                 }).addTo(map);
             }
@@ -121,14 +125,14 @@ fetch("/assets/location-data.json")
             if (i == 3 || i==8) {
                 chemArr.push(chemicalFactoryPosition);
 
-                let markerChem = L.marker([chemicalFactoryPosition[0], chemicalFactoryPosition[1]], { icon: chemicalIcon }).bindPopup(`<h3> ${data[i].title} </h3> <img src=${"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRiOtG4TFSY2KqcXTtRNZdAWozreQehbpbq2isswPQyli0Ye8q4HPXs-3R7SKHEyhYHF3U&usqp=CAU"} width="100%" height = "5%"></img><p> ${data[i].description} </p>`).on('click', () => {
+                let markerChem = L.marker([chemicalFactoryPosition[0], chemicalFactoryPosition[1]], { icon: chemicalIcon }).bindPopup(`<h3> ${data[i].title} </h3> <img src=${"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRiOtG4TFSY2KqcXTtRNZdAWozreQehbpbq2isswPQyli0Ye8q4HPXs-3R7SKHEyhYHF3U&usqp=CAU"} width="100%" height = "5%"></img><p> ${data[i].description} </p>` ,{maxWidth: 500,minWidth:400, autoPan: false }).on('click', () => {
                     //  map.flyTo([data[i].latitude, data[i].longitude], data[i].zoomLevel);
                 }).addTo(map);
             }
 
             if (i == 0 || i ==9) {
                 prodArr.push(productionFactoryPosition);
-                let markerProd = L.marker([productionFactoryPosition[0], productionFactoryPosition[1]], { icon: markerIconProd }).bindPopup(`<h3> ${data[i].title} </h3><img src=${"https://www.leatherluxury.it/media/brand/DAN_0798.jpg"} width="100%" height = "5%"></img> <p> ${data[i].description} </p>`).on('click', () => {
+                let markerProd = L.marker([productionFactoryPosition[0], productionFactoryPosition[1]], { icon: markerIconProd }).bindPopup(`<h3> ${data[i].title} </h3><img src=${"https://www.leatherluxury.it/media/brand/DAN_0798.jpg"} width="100%" height = "5%"></img> <p> ${data[i].description} </p>`,{ maxWidth: 500,minWidth:400, autoPan: false }).on('click', () => {
                     //  map.flyTo([data[i].latitude, data[i].longitude], data[i].zoomLevel);
                 }).addTo(map);
             }
@@ -136,7 +140,7 @@ fetch("/assets/location-data.json")
             if(i==1)
             {
                 supArr.push(supplierFactoryPosition);
-                let markerSup = L.marker([supplierFactoryPosition[0], supplierFactoryPosition[1]], { icon: markerIconSup }).bindPopup(`<h3> ${data[i].title} </h3> <img src=${"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSH1W1-FEwCQA6_Y0X6YKvDQIBP7hbZ7IEEYdvoFQGvnQ&s"} width="100%" height = "5%"></img><p> ${data[i].description} </p>`).on('click', () => {
+                let markerSup = L.marker([supplierFactoryPosition[0], supplierFactoryPosition[1]], { icon: markerIconSup }).bindPopup(`<h3> ${data[i].title} </h3> <img src=${"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSH1W1-FEwCQA6_Y0X6YKvDQIBP7hbZ7IEEYdvoFQGvnQ&s"} width="100%" height = "5%"></img><p> ${data[i].description} </p>`, {maxWidth: 500,minWidth:400, autoPan: false }).on('click', () => {
                     //  map.flyTo([data[i].latitude, data[i].longitude], data[i].zoomLevel);
                 }).addTo(map);
             }
@@ -144,7 +148,7 @@ fetch("/assets/location-data.json")
             
             if (i == 2 ) {
                 catArr.push(cattleHouseProduction);
-                let markerCattle = L.marker([cattleHouseProduction[0], cattleHouseProduction[1]], { icon: cowIcon }).bindPopup(`<h3> ${data[i].title} </h3> <img src=${"https://static6.depositphotos.com/1003671/579/i/450/depositphotos_5792338-stock-photo-red-angus.jpg"} width="100%" height = "5%"></img><p> ${data[i].description} </p>`).on('click', () => {
+                let markerCattle = L.marker([cattleHouseProduction[0], cattleHouseProduction[1]], { icon: cowIcon }).bindPopup(`<h3> ${data[i].title} </h3> <img src=${"https://static6.depositphotos.com/1003671/579/i/450/depositphotos_5792338-stock-photo-red-angus.jpg"} width="100%" height = "5%"></img><p> ${data[i].description} </p>`, { maxWidth: 500,minWidth:400, autoPan: false }).on('click', () => {
                     //  map.flyTo([data[i].latitude, data[i].longitude], data[i].zoomLevel);
                 }).addTo(map);
             }
