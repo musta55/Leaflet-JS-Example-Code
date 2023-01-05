@@ -3,22 +3,26 @@
         "latitude": 41.86266587498115,
         "longitude": 12.47150071100284,
         "title": "Bagtime Italia - Fabbrica di borse",
-        "description": "Address: Via Silvestro Gherardi, 58, 00146 Roma RM, Italy <br> Hours:  Open ⋅ Closes 1PM ⋅ Reopens 2PM<br>Phone: +39 06 558 6963   <br> Number of Male Production Workers: 519 <br>Number of Female Production Workers: 27 <br>Number of Male Employees: 603 <br>Number of Female Employees: 74 <br><br>Sustainable Material Certification(s): Leather Working Group (LWG) <br><br>Environmental & Chemical Management Certification(s): ISO 14001; STANDARD 100 by OEKO-TEX® <br> <br>Worker Well-Being Program(s): Childcare; Medical Clinics; Safety Education Training & Education; Staff Annual Trip; Staff Canteen; Trade Union",
+        "address": "Address: Via Silvestro Gherardi, 58, 00146 Roma RM, Italy",
+        "description": "The bags are handcrafted with extreme care in our Roman <br> laboratory by the expert hands of highly specialized personnel and with top quality materials.<br> The safety, beauty and resistance of Made in Italy are guaranteed at every stage of production.<br>Hours:  Open ⋅ Closes 1PM ⋅ Reopens 2PM<br>Phone: +39 06 558 6963 <br>Number of Male Employees: 603 <br>Number of Female Employees: 74 <br><br>Sustainable Material Certification(s): Leather Working Group (LWG) <br><br>Environmental & Chemical Management Certification(s): ISO 14001; STANDARD 100 by OEKO-TEX® <br> ",
         "zoomLevel": 18
     },
     {
-        "latitude": 25.7167,
-        "longitude": 88.9333,
-        "title": "Sadeeq Agro (Butcher House)",
-        "description": "Buther Name: Hamza Ali <br> Slaughter Date: 24th December, 2022.<br>Location: kurigram <br>Buthcer Method: Manual <br>Number of Male Production Workers: 54 <br> Number of Female Production Workers: 34 <br> Number of Male Employees: 14 <br>Number of Female Employees: 35 <br> Certifications <br>OHS&S (Ocupational Health & Safety Management System)",
+
+        "latitude": 24.8481,
+        "longitude": 89.3730,
+        "title": "Sadeeq Agro (Slaughter House)",
+        "address": "Address: 12,Bagura Sadar",
+        "description": "Buther Name: Hamza Ali <br> Slaughter Date: 24th December, 2022.<br>Location: kurigram <br>Slaughtering Method: Manual  <br> Certifications <br>OHS&S (Ocupational Health & Safety Management System)",
         "zoomLevel": 18
     },
 
     
     {
-        "latitude": 26.234,
-        "longitude": 89.28145416648,
+        "latitude": 25.808149322036, 
+        "longitude": 89.6293458539748,
         "title": "X Cattle House",
+        "address": "Address: 32,Kurigram Sadar",
         "description": "Cattle ID: SH9345<br>Breed: Shaiwal <br> Gender: Bull <br> Average Weight: 50 KG <br>Sourced From: Local Cattle Market <br>Date of Birth:2nd June, 2021 (Birth Certification) <br>Location: Kurigram <br> Growth Timeline: Approx. 11 months",
         "zoomLevel": 18
     },
@@ -26,20 +30,23 @@
         "latitude": 52.6129,
         "longitude": 10.2295,
         "title": "Dow Chemical Company",
-        "description": "Chemical List: <br> Sodium (Na), Sodium Phormate (HCOONA)<br> Bet, Crom(Cr)<br> Number of Male Production Workers: 254 <br> Number of Female Production Workers: 334 <br> Number of Male Employees: 56 <br>Number of Female Employees: 35        <br>Sustainable Material Certification(s): Not Disclosed <br>Environmental & Chemical Management Certification(s): Not Disclosed",
+        "address": "Address: Mozartstraße 26, 29331 Lachendorf, Germany",
+        "description": "Chemical List: <br> Sodium (Na), Sodium Phormate (HCOONA)<br> Bet, Crom(Cr)<br> Number of Male Production Workers: 254 <br> Number of Female Production Workers: 334 <br> Number of Male Employees: 56 <br>Number of Female Employees: 35  <br>Environmental & Chemical Management Certification(s): EPHEMERA",
         "zoomLevel": 18
     },
     {
         "latitude": 23.7986,
         "longitude": 90.268,
         "title": "RK Leather Industries",
-        "description": "Number of Male Production Workers: 4111 <br> Number of Female Production Workers: 2743 <br> Number of Male Employees: 4669 <br>Number of Female Employees: 2773       Certifications <br>OHS&S (Ocupational Health & Safety Management System)<br>BTA (Bangladesh Tanners Association)<br>ISO 45001<br>LWG (Leather Working Group)<br>Labour Law Certificate",
+        "address": "12 Street, Hemayetpur, Dhaka",
+        "description": "Number of Male Production Workers: 411 <br> Number of Female Production Workers:180 <br> Number of Male Employees: 509 <br>Number of Female Employees: 230       Certifications <br>OHS&S (Ocupational Health & Safety Management System)<br>BTA (Bangladesh Tanners Association)<br>ISO 45001<br>LWG (Leather Working Group)<br>Labour Law Certificate",
         "zoomLevel": 18
     },
     {
         "latitude": 28.3616,
         "longitude": 60.4747,
         "title": "Apex Tannery Industries",
+        "address": "Address: Sadar Road, Dhaka",
         "description": "Number of Male Production Workers: 546 <br> Number of Female Production Workers: 3534 <br> Number of Male Employees: 456 <br>Number of Female Employees: 35        Certifications <br>OHS&S (Ocupational Health & Safety Management System)<br>BTA (Bangladesh Tanners Association)<br>ISO 45001<br>LWG (Leather Working Group)<br>Labour Law Certificate",
         "zoomLevel": 20
     },
@@ -47,6 +54,7 @@
         "latitude": 56.9239,
         "longitude": 75.8267,
         "title": "ZK Tannery House",
+        "address": "Address: 12, Sadar Road, Dhaka",
         "description": "Number of Male Production Workers: 2154 <br> Number of Female Production Workers: 534 <br> Number of Male Employees: 456 <br>Number of Female Employees: 35        <br>Certifications <br>OHS&S (Ocupational Health & Safety Management System)<br>BTA (Bangladesh Tanners Association)<br>ISO 45001<br>LWG (Leather Working Group)<br>Labour Law Certificate",
         "zoomLevel": 18
     },
@@ -54,21 +62,40 @@
         "latitude": 36.9239,
         "longitude": 95.8267,
         "title": "Apex Leather Industries",
+        "address": "Address: Sadar Road, Dhaka",
         "description": "Number of Male Production Workers: 2454 <br> Number of Female Production Workers: 3534 <br> Number of Male Employees: 456 <br>Number of Female Employees: 35        <br>Certifications <br>OHS&S (Ocupational Health & Safety Management System)<br>BTA (Bangladesh Tanners Association)<br>ISO 45001<br>LWG (Leather Working Group)<br>Labour Law Certificate",
         "zoomLevel": 18
     },
     {
         "latitude": 47.497913,
         "longitude": 19.040236,
-        "title": "Le Chimi Chemical Company",
+        "title": "Chemelot Chemical Company",
+        "address": "Address: Geleen, Limburg, The Netherlands",
         "description": "Chemical List: <br> Sodium (Na), Sodium Phormate (HCOONA), Bet, Crom(Cr)<br> Number of Male Production Workers: 254 <br> Number of Female Production Workers: 334 <br> Number of Male Employees: 56 <br>Number of Female Employees: 35        <br>Sustainable Material Certification(s): Not Disclosed <br>Environmental & Chemical Management Certification(s): Not Disclosed",
         "zoomLevel": 18
     },
     {
-        "latitude": 48.8566,
-        "longitude": 2.3522,
+        "latitude": 41.86266587498115,
+        "longitude": 12.47150071100284,
         "title": "Bagtime Italia - Fabbrica di borse",
-        "description": "Address: Via Silvestro Gherardi, 58, 00146 Roma RM, Italy <br> Hours:  Open ⋅ Closes 1PM ⋅ Reopens 2PM<br>Phone: +39 06 558 6963<br>Worker Well-Being Program(s): Childcare; Medical Clinics; ",
+        "address": "Address: Liceo Scientifico Giovanni Keplero, Via Silvestro Gherardi, 87, 00146 Rome RM, Italy",
+        "description": "The bags are handcrafted with extreme care in our Roman <br> laboratory by the expert hands of highly specialized personnel and with top quality materials.<br> The safety, beauty and resistance of Made in Italy are guaranteed at every stage of production.<br>Hours:  Open ⋅ Closes 1PM ⋅ Reopens 2PM<br>Phone: +39 06 558 6963 <br>Number of Male Employees: 603 <br>Number of Female Employees: 74 <br><br>Sustainable Material Certification(s): Leather Working Group (LWG) <br><br>Environmental & Chemical Management Certification(s): ISO 14001; STANDARD 100 by OEKO-TEX® <br> ",
+        "zoomLevel": 18
+    },
+    {
+        "latitude": 36.35052697859339,
+        "longitude":  118.11401171969946,
+        "title": "Rongsheng Petrochemical Co Ltd",
+        "address": "98 Hongyang Road Yinong Town Xiaoshan District Hangzhou, 311247 China",
+        "description": "Chemical List: <br> Sodium (Na), Sodium Phormate (HCOONA), Bet, Crom(Cr)<br> Number of Male Production Workers: 254 <br> Number of Female Production Workers: 334 <br> Number of Male Employees: 56 <br>Number of Female Employees: 35        <br>Sustainable Material Certification(s): Not Disclosed <br>Environmental & Chemical Management Certification(s): Not Disclosed",
+        "zoomLevel": 18
+    },
+    {
+        "latitude": 23.999941,
+        "longitude": 90.420273,
+        "title": "Amanat Shah Traders (Collection House)",
+        "address": "32, Street Road, Gazipur",
+        "description": "Number of Male Production Workers: 10 <br> Number of Female Production Workers: 2 <br> Number of Male Employees: 8 <br>Number of Female Employees: 5  Certifications <br>BTA (Bangladesh Tanners Association)",
         "zoomLevel": 18
     }
 ]
