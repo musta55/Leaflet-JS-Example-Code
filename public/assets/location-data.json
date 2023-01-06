@@ -97,5 +97,13 @@
         "address": "32, Street Road, Gazipur",
         "description": "Number of Male Production Workers: 10 <br> Number of Female Production Workers: 2 <br> Number of Male Employees: 8 <br>Number of Female Employees: 5  Certifications <br>BTA (Bangladesh Tanners Association)",
         "zoomLevel": 18
+    },
+    {
+        "latitude": 23.999941,
+        "longitude": 90.420273,
+        "title": "Amanat Shah Traders (Collection House)",
+        "address": "32, Street Road, Gazipur",
+        "description": "Number of Male Production Workers: 10 <br> Number of Female Production Workers: 2 <br> Number of Male Employees: 8 <br>Number of Female Employees: 5  Certifications <br>BTA (Bangladesh Tanners Association)",
+        "zoomLevel": 18
     }
 ]
