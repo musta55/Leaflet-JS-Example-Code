@@ -19,14 +19,16 @@ app.listen(3002, () => {
 
   app.use(express.static(__dirname));
 
-app.get("/verify/0xc783b6913d8605d7f756035de781c1053be042f0b7b6dc7de12c227d1900173b", (req, res) => {
-    // res.setHeader('content-type', 'text/html');
-    res.sendFile(path.join(__dirname, 'public/verify.html',));
-  console.log("Hello");
-});
+
 
 app.get("/verify/0xa1de351d9b8c5c7ceb686e2cf4ca32bc2d5fcb4e0b3f50a478343370f36452f6", (req, res) => {
   // res.setHeader('content-type', 'text/html');
   res.sendFile(path.join(__dirname, 'public/verify.html',));
 console.log("Hello Manufacturer");
+});
+
+app.get("/verify/0xc783b6913d8605d7f756035de781c1053be042f0b7b6dc7de12c227d1900173b", (req, res) => {
+    // res.setHeader('content-type', 'text/html');
+    res.sendFile(path.join(__dirname, 'public/verify.html',));
+  console.log("Hello");
 });
